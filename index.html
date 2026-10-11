@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Galerie Sèmè — Art & culture</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f7f3ec;--card:#fffdf9;--ink:#191613;--mut:#7b7268;--line:#e4dccf;--gold:#a97c37;--gI:#fff;--ok:#2f7d57;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#120f0d;--card:#1b1714;--ink:#f3ece1;--mut:#a69d91;--line:#2d2722;--gold:#d4a85c;--gI:#120f0d;--ok:#5cc08f}}
+:root[data-theme="dark"]{--bg:#120f0d;--card:#1b1714;--ink:#f3ece1;--mut:#a69d91;--line:#2d2722;--gold:#d4a85c;--gI:#120f0d;--ok:#5cc08f}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:calc(76px + env(safe-area-inset-top,0px))}
+body{background:var(--bg);color:var(--ink);font:400 15px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.serif{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;letter-spacing:-.01em;line-height:1.02}
+.wrap{max-width:1200px;margin:auto;padding:0 22px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:70px;gap:12px}
+.logo{font:600 30px 'Cormorant Garamond',Georgia,serif;text-decoration:none;color:var(--ink);cursor:pointer}.logo i{color:var(--gold);font-style:normal}
+nav a{margin:0 14px;color:var(--ink);text-decoration:none;font-size:13px;letter-spacing:.08em;text-transform:uppercase;opacity:.75;position:relative}
+nav a:after{content:"";position:absolute;left:0;bottom:-4px;height:1px;width:0;background:var(--gold);transition:.3s}nav a:hover:after{width:100%}
+.acc{display:flex;gap:8px;align-items:center}.lnk{background:none;border:0;color:var(--mut);font:inherit;font-size:13px;cursor:pointer}.lnk:hover{color:var(--gold)}
+.btn{border:1px solid var(--ink);background:var(--ink);color:var(--bg);padding:12px 26px;border-radius:99px;font:500 13px Inter,sans-serif;letter-spacing:.04em;cursor:pointer;text-decoration:none;display:inline-block;transition:.3s}
+.btn:hover{background:var(--gold);border-color:var(--gold);color:var(--gI);transform:translateY(-2px)}
+.btn.o{background:transparent;color:var(--ink)}.btn.o:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}.btn.s{padding:8px 16px;font-size:12px}.btn[disabled]{opacity:.4;pointer-events:none}
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center;padding:70px 0 40px}
+h1{font-size:clamp(52px,8vw,108px)}h1 em{color:var(--gold)}
+.ln{display:block;overflow:hidden;padding-bottom:.08em}.ln span{display:block;animation:up 1.1s cubic-bezier(.2,.8,.2,1) both}.ln:nth-child(2) span{animation-delay:.15s}.ln:nth-child(3) span{animation-delay:.3s}
+@keyframes up{from{transform:translateY(105%)}}@keyframes fd{from{opacity:0;transform:translateY(16px)}}@keyframes fl{50%{transform:translateY(-12px)}}@keyframes mq{to{transform:translateX(-50%)}}
+.eye{letter-spacing:.24em;text-transform:uppercase;font-size:11px;color:var(--gold);margin-bottom:18px}
+.hero p{max-width:460px;color:var(--mut);margin:24px 0 32px;font-size:16px;animation:fd 1s .5s both}.hero .row{animation:fd 1s .7s both}
+.collage{position:relative;height:500px}.collage .fr{position:absolute;animation:fl 7s ease-in-out infinite}
+.collage .a{left:0;top:50px;width:46%}.collage .b{right:0;top:0;width:50%;animation-delay:-2s}.collage .c{left:30%;bottom:0;width:40%;animation-delay:-4s}
+.fr{background:var(--card);padding:10px;box-shadow:0 26px 50px -22px rgba(0,0,0,.45),0 0 0 1px var(--line);aspect-ratio:4/5;border-radius:2px;transition:.5s}
+.pic{width:100%;height:100%;overflow:hidden}.pic svg{width:100%;height:100%;display:block;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.card:hover .pic svg{transform:scale(1.08)}.card:hover .fr{transform:translateY(-8px);box-shadow:0 34px 60px -24px rgba(0,0,0,.5),0 0 0 1px var(--gold)}
+.mq{overflow:hidden;border-block:1px solid var(--line);padding:16px 0;margin-top:30px;white-space:nowrap}.mq div{display:inline-block;animation:mq 30s linear infinite;font:italic 400 26px 'Cormorant Garamond',Georgia,serif;color:var(--mut)}.mq span{margin:0 28px}.mq b{color:var(--gold);font-style:normal}
+.sh{display:flex;justify-content:space-between;align-items:end;gap:16px;margin:90px 0 30px;flex-wrap:wrap}h2{font-size:clamp(36px,5vw,58px)}.sh p{color:var(--mut)}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:26px}.bar .sp{flex:1}
+.chip{border:1px solid var(--line);background:transparent;color:var(--ink);padding:8px 18px;border-radius:99px;cursor:pointer;font:inherit;font-size:13px;transition:.25s}.chip.on,.chip:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+input,select,textarea{font:inherit;font-size:14px;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:99px;padding:11px 18px;outline:none;transition:.2s}input:focus,select:focus,textarea:focus{border-color:var(--gold)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:40px 28px}.card{cursor:pointer}.card .fr{width:100%}.card h3{font-size:25px;margin-top:16px}
+.meta{color:var(--mut);font-size:13px}.price{font-weight:600;margin-top:6px}
+.bd{display:inline-block;font-size:11px;letter-spacing:.06em;padding:2px 10px;border-radius:99px;border:1px solid;vertical-align:middle}.bd.ok{color:var(--ok);border-color:var(--ok)}.bd.no{color:var(--mut);border-color:var(--line)}.sold{color:var(--gold);font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+.ag{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:20px}
+.ac{text-align:center;cursor:pointer;padding:28px 12px;border:1px solid var(--line);border-radius:18px;background:var(--card);transition:.35s}.ac:hover{transform:translateY(-6px);border-color:var(--gold)}
+.av{width:90px;height:90px;border-radius:50%;margin:0 auto 14px;display:grid;place-items:center;color:#fff;font:600 34px 'Cormorant Garamond',Georgia,serif;box-shadow:0 0 0 4px var(--bg),0 0 0 5px var(--line)}.ac h3{font-size:23px;margin-bottom:6px}
+.expo{background:var(--ink);color:var(--bg);border-radius:24px;padding:60px;display:grid;grid-template-columns:1.2fr 1fr;gap:36px;align-items:center;margin-top:90px}
+.expo .eye{color:var(--gold)}.expo h2{margin-bottom:16px}.expo p{opacity:.8;max-width:460px;margin-bottom:26px}.expo .btn{background:var(--bg);color:var(--ink);border-color:var(--bg)}
+.pair{display:flex;gap:16px}.pair .fr{flex:1}
+footer{margin-top:100px;border-top:1px solid var(--line);padding:40px 0;color:var(--mut);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.rv{opacity:0;transform:translateY(30px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}.rv.in{opacity:1;transform:none}
+.ov{position:fixed;inset:0;background:rgba(10,8,6,.62);backdrop-filter:blur(5px);display:none;z-index:50;align-items:center;justify-content:center;padding:20px}.ov.on{display:flex}
+.md{background:var(--bg);border-radius:22px;max-width:920px;width:100%;max-height:90vh;overflow:auto;display:grid;grid-template-columns:1fr 1fr;position:relative;animation:fd .5s both}
+.md .l{padding:32px;background:var(--card);display:grid;place-items:center}.md .l .fr{width:100%;max-width:340px}.md .r{padding:40px 36px}.md h2{font-size:44px;margin:6px 0 4px}.md .r p{color:var(--mut);margin:16px 0}.md .r .price{font-size:24px;margin:16px 0}.md a{color:var(--gold);cursor:pointer;text-decoration:underline}
+.x{position:absolute;right:16px;top:10px;background:none;border:0;font-size:30px;color:var(--ink);cursor:pointer;z-index:2}.row{display:flex;gap:10px;flex-wrap:wrap}
+.f{display:grid;gap:10px;margin:16px 0}.f input,.f select{width:100%;border-radius:12px}
+.warn{background:color-mix(in srgb,var(--gold) 12%,transparent);border:1px solid var(--gold);border-radius:12px;padding:10px 14px;font-size:13px;margin:12px 0}
+.tabs{display:flex;gap:8px;margin:20px 0 24px;flex-wrap:wrap}
+.dsh{display:grid;grid-template-columns:310px 1fr;gap:22px;min-height:540px}
+.tl{border:1px solid var(--line);border-radius:18px;background:var(--card);overflow:auto;max-height:600px}.ti{padding:16px 18px;border-bottom:1px solid var(--line);cursor:pointer;transition:.2s}.ti:hover,.ti.on{background:color-mix(in srgb,var(--gold) 12%,transparent)}.ti b{font:500 19px 'Cormorant Garamond',Georgia,serif}
+.ch{border:1px solid var(--line);border-radius:18px;background:var(--card);display:flex;flex-direction:column;max-height:600px}.chh{padding:16px 20px;border-bottom:1px solid var(--line)}
+.msgs{flex:1;overflow:auto;padding:20px;display:flex;flex-direction:column;gap:10px;min-height:260px}.bb{max-width:75%;padding:10px 16px;border-radius:18px;background:var(--bg);border:1px solid var(--line);animation:fd .3s both}.bb.me{align-self:flex-end;background:var(--gold);color:var(--gI);border-color:var(--gold)}.bb small{display:block;font-size:10px;opacity:.6}.bb.sy{align-self:center;background:none;border:0;color:var(--mut);font-size:12px}
+.inp{display:flex;gap:8px;padding:14px;border-top:1px solid var(--line)}.inp input{flex:1}
+.wr{display:flex;gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}.wr .th{width:52px;height:66px;overflow:hidden;border-radius:2px}.wr .th svg{width:100%;height:100%}.wr div:nth-child(2){flex:1}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,30px);background:var(--ink);color:var(--bg);padding:12px 22px;border-radius:99px;font-size:14px;opacity:0;transition:.4s;z-index:90;pointer-events:none}.toast.on{opacity:1;transform:translate(-50%,0)}
+@media(max-width:860px){nav{display:none}.hero{grid-template-columns:1fr;padding-top:36px}.collage{height:370px}.md,.expo,.dsh{grid-template-columns:1fr}.expo{padding:32px}.md .r{padding:28px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style></head><body>
+<header><div class="wrap nav"><a class="logo" onclick="goHome()">Sèmè<i>.</i></a>
+<nav><a href="#catalogue" onclick="goHome()">Catalogue</a><a href="#artistes" onclick="goHome()">Artistes</a><a href="#expo" onclick="goHome()">Exposition</a></nav><div class="acc" id="acc"></div></div></header>
+<main class="wrap">
+<div id="home">
+<section class="hero"><div><div class="eye">Galerie d'art &amp; culture · Cotonou</div>
+<h1><span class="ln"><span>L'art,</span></span><span class="ln"><span>à portée de</span></span><span class="ln"><span><em>regard.</em></span></span></h1>
+<p>Œuvres uniques d'artistes d'Afrique de l'Ouest, vérifiées et certifiées par la galerie. Explorez, échangez directement avec l'artiste, commandez.</p>
+<div class="row"><a class="btn" href="#catalogue">Explorer le catalogue</a><button class="btn o" onclick="authOpen('register')">Rejoindre la galerie</button></div></div>
+<div class="collage"><div class="fr a"><div class="pic" id="h1"></div></div><div class="fr b"><div class="pic" id="h2"></div></div><div class="fr c"><div class="pic" id="h3"></div></div></div></section>
+<div class="mq"><div><span>Pièces uniques</span><b>✦</b><span>Artistes certifiés</span><b>✦</b><span>Messagerie directe</span><b>✦</b><span>Livraison encadrée</span><b>✦</b><span>Pièces uniques</span><b>✦</b><span>Artistes certifiés</span><b>✦</b><span>Messagerie directe</span><b>✦</b><span>Livraison encadrée</span><b>✦</b></div></div>
+<section id="catalogue"><div class="sh rv"><div><div class="eye">Collection</div><h2>Le catalogue</h2></div><p id="cnt"></p></div>
+<div class="bar" id="chips"></div>
+<div class="bar"><input id="q" placeholder="Rechercher une œuvre ou un artiste" aria-label="Rechercher" style="min-width:260px"><span class="sp"></span><select id="so" aria-label="Trier"><option value="">Sélection</option><option value="a">Prix croissant</option><option value="d">Prix décroissant</option></select></div>
+<div class="grid" id="grid"></div></section>
+<section id="artistes"><div class="sh rv"><div><div class="eye">Créateurs</div><h2>Les artistes</h2></div><p>Le badge indique si l'artiste est certifié par la galerie.</p></div><div class="ag" id="ag"></div></section>
+<section class="expo rv" id="expo"><div><div class="eye">Exposition en cours</div><h2>Couleurs d'Afrique de l'Ouest</h2><p>Du 24 octobre au 30 novembre 2026, douze toiles dialoguent entre mémoire, paysages et abstraction. Entrée libre, vernissage le 24 octobre à 18 h.</p><a class="btn" href="#catalogue">Voir les œuvres exposées</a></div><div class="pair"><div class="fr"><div class="pic" id="e1"></div></div><div class="fr"><div class="pic" id="e2"></div></div></div></section>
+</div>
+<section id="dash" style="display:none;padding-top:40px"></section>
+<footer><span class="serif" style="font-size:22px;color:var(--ink)">Sèmè.</span><span>© 2026 Galerie Sèmè · Cotonou, Bénin · Maquette de démonstration</span></footer>
+</main>
+<div class="ov" id="ov" onclick="if(event.target===this)cl()"><div class="md" id="md"></div></div><div class="toast" id="ts"></div>
+<script>
+const $=s=>document.querySelector(s),f=n=>n.toLocaleString("fr-FR")+" FCFA";
+const P=[["#efe3d0","#b4532a","#d9a441","#2f4a43","#1d1a17"],["#e8ddd6","#c0392b","#e9b872","#3d5a80","#1d1a17"],["#dfe6dd","#4a6741","#e0b04a","#a8432b","#1d1a17"],["#f1e6e0","#7a4b8a","#e8956b","#2d6a6a","#1d1a17"],["#e6e1d3","#2c5f7c","#d98a3d","#8e3b3b","#1d1a17"],["#efe0d4","#a34a28","#6b8f71","#e8c468","#1d1a17"]];
+const A=[["Amina Kossou","amina","Cotonou","Peintre de paysages, elle capte la lumière des rives de l'Ouémé à l'aube."],["Roméo Adjovi","romeo","Porto-Novo","Ses compositions abstraites explorent la mémoire et le rythme des couleurs."],["Léa Dossou","lea","Abomey-Calavi","Inspirée des marchés et des tissages, elle bâtit des mosaïques géométriques."],["Marc Tchibozo","marc","Parakou","Architecte de formation, il compose des tableaux en blocs et en rythmes."],["Inès Gbaguidi","ines","Ouidah","Ses grandes toiles abstraites dialoguent avec l'histoire des palais royaux."],["Sènami Agbo","senami","Grand-Popo","Elle peint l'océan, l'harmattan et les horizons de la côte atlantique."]];
+const T=[["Aube sur l'Ouémé",0,"Paysage",2024,"80×100 cm",450000],["Fragments de mémoire",1,"Abstrait",2023,"100×120 cm",620000],["Marché de Dantokpa",2,"Géométrique",2025,"70×90 cm",380000],["Lagune rouge",0,"Paysage",2025,"90×90 cm",520000],["Rythme n°4",3,"Géométrique",2022,"60×80 cm",290000],["Les Ombres du Palais",4,"Abstrait",2024,"110×140 cm",780000],["Harmattan",5,"Paysage",2023,"80×60 cm",340000],["Danse des couleurs",1,"Abstrait",2025,"100×100 cm",560000],["Tissage doré",2,"Géométrique",2024,"80×80 cm",410000],["Mer d'Ouidah",5,"Paysage",2025,"120×80 cm",590000],["Éclat",4,"Abstrait",2023,"70×70 cm",330000],["Mosaïque Nord",3,"Géométrique",2025,"90×120 cm",470000]];
+let D={users:[],works:[],th:[]},me=null,st="Tous",cur=null,tab="msg";
+function seed(){D.users=[{id:"ad",role:"admin",name:"Administrateur",email:"admin@seme.bj",pw:"demo"},...A.map((a,i)=>({id:"a"+i,role:"artist",name:a[0],email:a[1]+"@seme.bj",pw:"demo",city:a[2],bio:a[3],cert:i!=3&&i!=5})),{id:"c1",role:"client",name:"Client Démo",email:"client@seme.bj",pw:"demo"}];
+D.works=T.map((x,i)=>({id:i+1,t:x[0],u:"a"+x[1],st:x[2],y:x[3],sz:x[4],p:x[5],s:"Disponible"}))}
+try{const s=JSON.parse(localStorage.getItem("seme2"));if(s){D=s.D;me=s.me?D.users.find(u=>u.id==s.me)||null:null}}catch(e){}
+if(!D.users.length)seed();
+const sv=()=>{try{localStorage.setItem("seme2",JSON.stringify({D,me:me&&me.id}))}catch(e){}};
+const U=id=>D.users.find(u=>u.id==id),Wk=id=>D.works.find(w=>w.id==id),bd=u=>u.cert?'<span class="bd ok">✓ Certifié</span>':'<span class="bd no">Non certifié</span>';
+const rnd=s=>()=>{s|=0;s=s+0x6D2B79F5|0;let t=Math.imul(s^s>>>15,1|s);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};
+function art(w){const r=rnd(w.id*97+13),p=P[w.id%6];let s=`<svg viewBox="0 0 300 380" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><rect width="300" height="380" fill="${p[0]}"/>`;
+if(w.st=="Paysage"){s+=`<circle cx="${80+r()*140}" cy="${90+r()*60}" r="${40+r()*30}" fill="${p[2]}"/>`;for(let i=0;i<5;i++){const y=170+i*42;s+=`<path d="M0 ${y} Q${75+r()*40} ${y-30-r()*30} 150 ${y} T300 ${y} V380 H0Z" fill="${p[1+i%3]}" opacity="${.5+i*.12}"/>`}}
+else if(w.st=="Abstrait"){for(let i=0;i<9;i++)s+=`<circle cx="${r()*300}" cy="${r()*380}" r="${30+r()*90}" fill="${p[1+i%4]}" opacity="${.35+r()*.4}"/>`;s+=`<path d="M0 ${200+r()*100} C100 ${r()*380} 200 ${r()*380} 300 ${r()*300}" stroke="${p[4]}" stroke-width="3" fill="none"/>`}
+else for(let i=0;i<15;i++)s+=`<rect x="${(i%3)*100}" y="${Math.floor(i/3)*80}" width="${60+r()*40}" height="${50+r()*30}" fill="${p[1+Math.floor(r()*4)]}" opacity="${.6+r()*.4}"/>`;
+return s+"</svg>"}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.08});
+const rv=()=>document.querySelectorAll(".rv:not(.in)").forEach(e=>io.observe(e));
+const card=(w,i)=>{const a=U(w.u);return `<div class="card rv" style="transition-delay:${(i||0)%4*90}ms" onclick="openW(${w.id})"><div class="fr"><div class="pic">${art(w)}</div></div><h3>${w.t}</h3><div class="meta">${a.name} · ${w.sz}</div><div style="margin-top:6px">${bd(a)}</div><div class="price">${w.s=="Vendue"?'<span class="sold">Vendue</span>':f(w.p)+(w.s=="Réservée"?' <span class="sold">· Réservée</span>':"")}</div></div>`};
+function render(){const q=$("#q").value.toLowerCase(),so=$("#so").value;let l=D.works.filter(w=>(st=="Tous"||w.st==st)&&(w.t+U(w.u).name).toLowerCase().includes(q));
+if(so)l.sort((a,b)=>so=="a"?a.p-b.p:b.p-a.p);$("#grid").innerHTML=l.map(card).join("")||'<p class="meta">Aucune œuvre trouvée.</p>';$("#cnt").textContent=l.length+" œuvre"+(l.length>1?"s":"");
+$("#ag").innerHTML=D.users.filter(u=>u.role=="artist").map(a=>`<div class="ac rv" onclick="openA('${a.id}')"><div class="av" style="background:linear-gradient(135deg,${P[+a.id.slice(1)%6||1][1]},${P[+a.id.slice(1)%6||1][3]})">${a.name[0]}</div><h3>${a.name}</h3><div class="meta" style="margin-bottom:8px">${a.city} · ${D.works.filter(w=>w.u==a.id).length} œuvres</div>${bd(a)}</div>`).join("");
+[["h1",2],["h2",1],["h3",6],["e1",4],["e2",10]].forEach(([e,i])=>$("#"+e).innerHTML=art(D.works[i]));rv()}
+$("#chips").innerHTML=["Tous","Abstrait","Paysage","Géométrique"].map(c=>`<button class="chip${c=="Tous"?" on":""}" onclick="st='${c}';document.querySelectorAll('.chip').forEach(b=>b.classList.toggle('on',b.textContent==st));render()">${c}</button>`).join("");
+$("#q").oninput=render;$("#so").onchange=render;
+function hdr(){$("#acc").innerHTML=me?`<button class="btn o s" onclick="showDash()">${me.name.split(" ")[0]} · Mon espace</button><button class="lnk" onclick="out()">Déconnexion</button>`:`<button class="btn s" onclick="authOpen('login')">Connexion</button>`}
+function toast(m){const t=$("#ts");t.textContent=m;t.classList.add("on");setTimeout(()=>t.classList.remove("on"),3200)}
+function show(h,w){$("#md").innerHTML='<button class="x" onclick="cl()" aria-label="Fermer">×</button>'+h;$("#md").style.maxWidth=w||"920px";$("#ov").classList.add("on")}
+function cl(){$("#ov").classList.remove("on")}
+function openW(id){const w=Wk(id),a=U(w.u);show(`<div class="l"><div class="fr"><div class="pic">${art(w)}</div></div></div><div class="r"><div class="eye">${w.st} · ${w.y}</div><h2>${w.t}</h2><a onclick="openA('${a.id}')">${a.name}</a> <span class="meta">· ${a.city}</span> ${bd(a)}
+${a.cert?"":'<div class="warn">Cet artiste n\'a pas encore été vérifié par la galerie. Échangez avec prudence.</div>'}
+<p>${w.st=="Géométrique"?"Acrylique":"Huile"} sur toile, ${w.sz}. Pièce unique, signée${a.cert?", livrée avec certificat d'authenticité":""}.</p><div class="price">${f(w.p)}</div>
+<div class="row"><button class="btn" ${w.s=="Vendue"?"disabled":""} onclick="order(${id})">${w.s=="Vendue"?"Vendue":"Commander via la messagerie"}</button></div></div>`)}
+function openA(id){const a=U(id);show(`<div class="r" style="grid-column:1/-1"><div class="av" style="background:linear-gradient(135deg,${P[+id.slice(1)%6||1][1]},${P[+id.slice(1)%6||1][3]});margin:0 0 16px">${a.name[0]}</div><h2>${a.name}</h2><div class="meta">${a.city}, Bénin · ${bd(a)}</div><p style="max-width:560px">${a.bio||"Artiste de la galerie."}</p><div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:20px">${D.works.filter(w=>w.u==id).map(w=>card(w).replace("rv","rv in")).join("")||'<p class="meta">Aucune œuvre publiée.</p>'}</div></div>`)}
+function authOpen(m,msg){let reg=m=="register";show(`<div class="r" style="grid-column:1/-1"><div class="eye">${reg?"Créer un compte":"Connexion"}</div><h2>${reg?"Rejoindre Sèmè":"Bon retour"}</h2>${msg?`<div class="warn">${msg}</div>`:""}
+<div class="tabs" style="margin:14px 0 0"><button class="chip${reg?"":" on"}" onclick="authOpen('login')">Connexion</button><button class="chip${reg?" on":""}" onclick="authOpen('register')">Créer un compte</button></div>
+<div class="f">${reg?'<select id="ar"><option value="client">Je suis client (acheteur)</option><option value="artist">Je suis artiste (vendeur)</option></select><input id="an" placeholder="Nom complet"><input id="ac" placeholder="Ville (artistes)">':""}<input id="ae" type="email" placeholder="E-mail"><input id="ap" type="password" placeholder="Mot de passe"></div>
+<button class="btn" style="width:100%" onclick="doAuth(${reg})">${reg?"Créer mon compte":"Se connecter"}</button>
+${reg?'<p class="meta" style="margin-top:10px">Les comptes artistes sont « non certifiés » jusqu\'à vérification par l\'administrateur.</p>':`<p class="meta" style="margin:14px 0 8px">Comptes de démonstration (mot de passe : demo)</p><div class="row"><button class="chip" onclick="demo('client@seme.bj')">Client</button><button class="chip" onclick="demo('amina@seme.bj')">Artiste certifiée</button><button class="chip" onclick="demo('senami@seme.bj')">Artiste non certifiée</button><button class="chip" onclick="demo('admin@seme.bj')">Admin</button></div>`}</div>`,"460px")}
+function demo(e){login(U(D.users.find(u=>u.email==e).id))}
+function login(u){me=u;sv();hdr();cl();toast("Bienvenue, "+u.name.split(" ")[0]);showDash()}
+function doAuth(reg){const e=$("#ae").value.trim().toLowerCase(),p=$("#ap").value;if(!e||!p)return toast("E-mail et mot de passe requis.");
+if(!reg){const u=D.users.find(x=>x.email==e&&x.pw==p);return u?login(u):toast("Identifiants incorrects.")}
+const n=$("#an").value.trim();if(!n)return toast("Indiquez votre nom.");if(D.users.find(x=>x.email==e))return toast("Cet e-mail existe déjà.");
+const r=$("#ar").value,u={id:"u"+Date.now(),role:r,name:n,email:e,pw:p};if(r=="artist"){u.city=$("#ac").value.trim()||"Bénin";u.cert=false;u.bio="Nouvel artiste de la galerie."}D.users.push(u);login(u);if(r=="artist")toast("Compte créé. En attente de certification.")}
+function out(){me=null;sv();hdr();goHome();toast("À bientôt")}
+function goHome(){$("#dash").style.display="none";$("#home").style.display="block";render()}
+function order(id){if(!me)return authOpen("login","Connectez-vous avec un compte client pour commander.");if(me.role!="client")return toast("Seuls les comptes clients peuvent commander.");
+const w=Wk(id);let t=D.th.find(x=>x.w==id&&x.c==me.id);if(!t){t={id:"t"+Date.now(),w:id,c:me.id,a:w.u,s:"En attente",m:[{f:me.id,x:`Bonjour, je souhaite commander « ${w.t} » (${f(w.p)}). Pouvez-vous me confirmer sa disponibilité et la livraison ?`,t:Date.now()}]};D.th.push(t)}
+cur=t.id;sv();cl();showDash("msg")}
+function showDash(t){if(!me)return;tab=t||(me.role=="admin"?"cert":tab=="works"&&me.role=="artist"?"works":"msg");$("#home").style.display="none";$("#dash").style.display="block";scrollTo(0,0);rd()}
+function rd(){const tb=me.role=="admin"?[["cert","Certification des artistes"]]:me.role=="artist"?[["msg","Commandes & messages"],["works","Mes œuvres"]]:[["msg","Mes demandes & messages"]];
+let h=`<div class="eye">Mon espace · ${me.role=="admin"?"Administrateur":me.role=="artist"?"Artiste":"Client"}</div><h2>${me.name} ${me.role=="artist"?bd(me):""}</h2>`;
+if(me.role=="artist"&&!me.cert)h+='<div class="warn" style="margin-top:14px">Votre compte est en attente de certification. Vos œuvres s\'affichent « Non certifié » tant que l\'administrateur ne vous a pas vérifié.</div>';
+h+='<div class="tabs">'+tb.map(x=>`<button class="chip${tab==x[0]?" on":""}" onclick="tab='${x[0]}';rd()">${x[1]}</button>`).join("")+"</div>";
+h+=tab=="cert"?pc():tab=="works"?pw():pm();$("#dash").innerHTML=h;const m=$("#mg");if(m)m.scrollTop=m.scrollHeight}
+function pm(){const l=D.th.filter(t=>me.role=="artist"?t.a==me.id:t.c==me.id).reverse(),t=l.find(x=>x.id==cur)||l[0];if(t)cur=t.id;
+if(!l.length)return `<p class="meta">${me.role=="artist"?"Aucune commande reçue pour le moment.":"Aucune demande. Ouvrez une œuvre du catalogue et cliquez sur « Commander »."}</p>`;
+const o=u=>U(u),oth=t=>o(me.role=="artist"?t.c:t.a),w=Wk(t.w);
+return `<div class="dsh"><div class="tl">${l.map(x=>`<div class="ti${x.id==cur?" on":""}" onclick="cur='${x.id}';rd()"><b>${Wk(x.w).t}</b><div class="meta">${oth(x).name} · ${x.s}</div></div>`).join("")}</div>
+<div class="ch"><div class="chh"><b class="serif" style="font-size:24px">${w.t}</b> <span class="meta">· ${f(w.p)}</span><div class="meta">${me.role=="artist"?"Client : ":"Artiste : "}${oth(t).name} ${me.role=="client"?bd(oth(t)):""} · Statut : <b>${t.s}</b></div>
+${me.role=="artist"&&t.s!="Conclue"&&t.s!="Refusée"?`<div class="row" style="margin-top:10px">${t.s=="En attente"?`<button class="btn s" onclick="ss('${t.id}','Acceptée')">Accepter</button><button class="btn o s" onclick="ss('${t.id}','Refusée')">Refuser</button>`:`<button class="btn s" onclick="ss('${t.id}','Conclue')">Marquer vendue</button>`}</div>`:""}</div>
+<div class="msgs" id="mg">${t.m.map(m=>m.f=="sys"?`<div class="bb sy">${m.x}</div>`:`<div class="bb${m.f==me.id?" me":""}"><small>${o(m.f).name} · ${new Date(m.t).toLocaleTimeString("fr-FR",{hour:"2-digit",minute:"2-digit"})}</small>${m.x}</div>`).join("")}</div>
+<div class="inp"><input id="mi" placeholder="Écrire un message…" onkeydown="if(event.key=='Enter')snd()"><button class="btn s" onclick="snd()">Envoyer</button></div></div></div>`}
+function snd(){const v=$("#mi").value.trim(),t=D.th.find(x=>x.id==cur);if(!v||!t)return;t.m.push({f:me.id,x:v,t:Date.now()});sv();rd();$("#mi").focus()}
+function ss(id,s){const t=D.th.find(x=>x.id==id),w=Wk(t.w);t.s=s;w.s=s=="Acceptée"?"Réservée":s=="Conclue"?"Vendue":"Disponible";t.m.push({f:"sys",x:"Statut de la commande : "+s,t:Date.now()});sv();rd();toast("Statut mis à jour")}
+function pw(){const l=D.works.filter(w=>w.u==me.id);return `<div style="display:grid;grid-template-columns:1.2fr 1fr;gap:30px" class="dsh">
+<div>${l.map(w=>`<div class="wr"><div class="th">${art(w)}</div><div><b class="serif" style="font-size:20px">${w.t}</b><div class="meta">${w.st} · ${w.sz} · ${f(w.p)}</div></div><span class="sold">${w.s}</span></div>`).join("")||'<p class="meta">Aucune œuvre publiée.</p>'}</div>
+<div><h3 style="font-size:28px">Publier une œuvre</h3><div class="f"><input id="wt" placeholder="Titre"><select id="ws"><option>Abstrait</option><option>Paysage</option><option>Géométrique</option></select><input id="wz" placeholder="Dimensions (ex. 80×100 cm)"><input id="wp" type="number" placeholder="Prix en FCFA"></div><button class="btn" onclick="addW()">Publier</button></div></div>`}
+function addW(){const t=$("#wt").value.trim(),p=+$("#wp").value;if(!t||!p)return toast("Titre et prix requis.");D.works.push({id:Math.max(...D.works.map(w=>w.id))+1,t,u:me.id,st:$("#ws").value,y:2026,sz:$("#wz").value||"—",p,s:"Disponible"});sv();rd();toast("Œuvre publiée au catalogue")}
+function pc(){return D.users.filter(u=>u.role=="artist").map(a=>`<div class="wr"><div><b class="serif" style="font-size:22px">${a.name}</b><div class="meta">${a.city} · ${a.email} · ${D.works.filter(w=>w.u==a.id).length} œuvres</div></div>${bd(a)}<button class="btn s${a.cert?" o":""}" onclick="tg('${a.id}')">${a.cert?"Retirer":"Certifier"}</button></div>`).join("")}
+function tg(id){const a=U(id);a.cert=!a.cert;sv();rd();toast(a.cert?a.name+" est certifié(e)":"Certification retirée")}
+hdr();render();
+document.addEventListener("keydown",e=>{if(e.key=="Escape")cl()});
+</script></body></html>
